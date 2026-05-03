@@ -1,0 +1,8 @@
+<svg class="logo-hex" viewBox="0 0 36 36" fill="none">
+      <polygon points="18,1 34,9.5 34,26.5 18,35 2,26.5 2,9.5" fill="none" stroke="#c8ff00" stroke-width="1.5"/>
+      <polygon points="18,7 28,12.5 28,23.5 18,29 8,23.5 8,12.5" fill="rgba(200,255,0,.07)" stroke="#c8ff00" stroke-width=".75"/>
+      <circle cx="18" cy="18" r="3.5" fill="#c8ff00"/>
+      <line x1="18" y1="1" x2="18" y2="35" stroke="#c8ff00" stroke-width=".4" opacity=".35"/>
+      <line x1="2" y1="9.5" x2="34" y2="26.5" stroke="#c8ff00" stroke-width=".4" opacity=".35"/>
+      <line x1="34" y1="9.5" x2="2" y2="26.5" stroke="#c8ff00" stroke-width=".4" opacity=".35"/>
+    </svg>

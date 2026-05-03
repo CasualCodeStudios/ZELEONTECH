@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZELEONTECH // Fiber of the Future</title>
+<link rel="icon" href="favicon.svg" type="image+xml">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<!-- CANVAS BG -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/254701182849" class="wa-btn" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ═══ NAV ═══ -->
+<nav id="main-nav">
+  <a href="#" class="logo">
+    <svg class="logo-hex" viewBox="0 0 36 36" fill="none">
+      <polygon points="18,1 34,9.5 34,26.5 18,35 2,26.5 2,9.5" fill="none" stroke="#c8ff00" stroke-width="1.5"/>
+      <polygon points="18,7 28,12.5 28,23.5 18,29 8,23.5 8,12.5" fill="rgba(200,255,0,.07)" stroke="#c8ff00" stroke-width=".75"/>
+      <circle cx="18" cy="18" r="3.5" fill="#c8ff00"/>
+      <line x1="18" y1="1" x2="18" y2="35" stroke="#c8ff00" stroke-width=".4" opacity=".35"/>
+      <line x1="2" y1="9.5" x2="34" y2="26.5" stroke="#c8ff00" stroke-width=".4" opacity=".35"/>
+      <line x1="34" y1="9.5" x2="2" y2="26.5" stroke="#c8ff00" stroke-width=".4" opacity=".35"/>
+    </svg>
+    <div>
+      <div class="logo-name">zeleontech</div>
+      <span class="logo-tag">WIFI // NYERI COUNTY</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#coverage">Coverage</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="https://wa.me/254700000000" target="_blank" class="nav-cta">Get Connected</a></li>
+  </ul>
+  <!-- Hamburger menu button — visible on mobile only -->
+  <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">
+    <span class="menu-bar"></span>
+    <span class="menu-bar"></span>
+    <span class="menu-bar"></span>
+  </button>
+</nav>
+
+<!-- ═══ SIDEBAR (mobile nav) ═══ -->
+<!-- Slides in from the right on smaller screens -->
+<div id="sidebar-overlay" class="sidebar-overlay"></div>
+<nav id="sidebar" class="sidebar">
+  <!-- Close button inside sidebar -->
+  <button class="sidebar-close" id="sidebar-close" aria-label="Close menu">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <line x1="3" y1="3" x2="17" y2="17" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="17" y1="3" x2="3" y2="17" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </button>
+  <!-- Sidebar brand -->
+  <div class="sidebar-brand">
+    <svg class="logo-hex" viewBox="0 0 36 36" fill="none">
+      <polygon points="18,1 34,9.5 34,26.5 18,35 2,26.5 2,9.5" fill="none" stroke="#c8ff00" stroke-width="1.5"/>
+      <polygon points="18,7 28,12.5 28,23.5 18,29 8,23.5 8,12.5" fill="rgba(200,255,0,.07)" stroke="#c8ff00" stroke-width=".75"/>
+      <circle cx="18" cy="18" r="3.5" fill="#c8ff00"/>
+    </svg>
+    <div>
+      <div class="logo-name">zeleontech</div>
+      <span class="logo-tag">WIFI // NYERI COUNTY</span>
+    </div>
+  </div>
+  <!-- Sidebar nav links — scrollable if they overflow -->
+  <ul class="sidebar-links">
+    <li><a href="#packages" class="sidebar-link">
+      <span class="slink-num">01</span>Packages
+    </a></li>
+    <li><a href="#coverage" class="sidebar-link">
+      <span class="slink-num">02</span>Coverage
+    </a></li>
+    <li><a href="#about" class="sidebar-link">
+      <span class="slink-num">03</span>About
+    </a></li>
+    <li><a href="#network" class="sidebar-link">
+      <span class="slink-num">04</span>Network
+    </a></li>
+    <li><a href="#how" class="sidebar-link">
+      <span class="slink-num">05</span>How It Works
+    </a></li>
+  </ul>
+  <a href="https://wa.me/254701182849?text=Hi!%20I%27d%20like%20to%20get%20connected" target="_blank" class="sidebar-cta">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Get Connected
+  </a>
+  <div class="sidebar-footer">
+    <span>0701 182 849</span>
+    <span>Nyeri Town, Kenya</span>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════
+     §1  HERO
+════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">Nyeri County // Network Active</div>
+    <h1 class="hero-h">
+      <span class="l1">ZELEONTECH</span>
+      <span class="l2">Nyeri <span id="l3"><span>Iko</span> - <span>CONNECTED</span></span></span>
+      
+    </h1>
+    <p class="hero-desc">Blazing-fast, reliable internet for homes, shops, and businesses across Nyeri County — Local technician. Instant support.</p>
+    <div class="cta-row">
+      <a href="#packages" class="btn-p">View Packages</a>
+      <a href="#coverage" class="btn-s">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="7" r="4" stroke="currentColor" stroke-width="1.2"/><path d="M8 11v4M5 14h6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        Check Coverage
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-n">500+</div><div class="stat-l">Active Clients</div></div>
+      <div><div class="stat-n">99.7%</div><div class="stat-l">Uptime</div></div>
+      <div><div class="stat-n">24h</div><div class="stat-l">Local Support</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <canvas id="globe-canvas"></canvas>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     §2  VALUE PROPS
+════════════════════════════════════ -->
+<section class="values">
+  <div class="reveal" style="text-align:center">
+    <div class="sec-label" style="justify-content:center">Why NYERI.NET</div>
+    <div class="sec-title1">Built for <span style="color:var(--acid)"> </span></div>
+  </div>
+  <div class="values-grid">
+    <div class="val-card reveal">
+      <svg class="val-icon" viewBox="0 0 44 44" fill="none"><rect x="2" y="2" width="40" height="40" rx="4" stroke="#c8ff00" stroke-width="1"/><path d="M22 8v8M14 22H8M36 22h-8M22 36v-8" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/><circle cx="22" cy="22" r="5" stroke="#c8ff00" stroke-width="2.2"/><circle cx="22" cy="22" r="1.5" fill="#c8ff00"/></svg>
+      <div class="val-title">Ultra Fast</div>
+      <div class="val-text">Fiber-backed speeds up to 100Mbps. Stream, work, game — no lag, no buffering. Real speed for real life.</div>
+    </div>
+    <div class="val-card reveal" style="animation-delay:.1s">
+      <svg class="val-icon" viewBox="0 0 44 44" fill="none"><path d="M22 4L38 12v20L22 40 6 32V12L22 4z" stroke="#00f0ff" stroke-width="1"/><path d="M22 14l8 4v8l-8 4-8-4v-8l8-4z" stroke="#00f0ff" stroke-width="1"/><circle cx="22" cy="22" r="2" fill="#00f0ff"/></svg>
+      <div class="val-title" style="color:var(--plasma)">Local Support</div>
+      <div class="val-text">Your technician is in Nyeri, not Nairobi. Same-day support, real accountability, zero call-centre runaround.</div>
+    </div>
+    <div class="val-card reveal" style="animation-delay:.2s">
+      <svg class="val-icon" viewBox="0 0 44 44" fill="none"><rect x="6" y="14" width="32" height="20" rx="2" stroke="#c8ff00" stroke-width="1"/><path d="M14 14V10a8 8 0 0116 0v4" stroke="#c8ff00" stroke-width="1.2" stroke-linecap="round"/><circle cx="22" cy="24" r="3" fill="rgba(200,255,0,.2)" stroke="#c8ff00" stroke-width="1"/><line x1="22" y1="27" x2="22" y2="30" stroke="#c8ff00" stroke-width="1.2" stroke-linecap="round"/></svg>
+      <div class="val-title">Secured</div>
+      <div class="val-text">Enterprise-grade network security. Your data stays yours. Protected from day one, no technical knowledge needed.</div>
+    </div>
+    <div class="val-card reveal" style="animation-delay:.3s">
+      <svg class="val-icon" viewBox="0 0 44 44" fill="none"><path d="M8 22c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="#ff9900" stroke-width="1.2"/><path d="M12 22c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#ff9900" stroke-width="1.2"/><path d="M16 22c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="#ff9900" stroke-width="1.2"/><circle cx="22" cy="22" r="2.5" fill="#ff9900"/></svg>
+      <div class="val-title" style="color:var(--amber)">Flexible Plans</div>
+      <div class="val-text">From hourly bundles to monthly unlimited — pay what you need, when you need it. No lock-in contracts.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     §3  LIVE NETWORK VISUALIZATION
+════════════════════════════════════ -->
+<section class="network-sec" id="network">
+  <div class="reveal">
+    <div class="sec-label">Live Infrastructure</div>
+    <div class="sec-title">The Network<br><span style="color:var(--plasma)">Powering Nyeri</span></div>
+    <div class="sec-sub">Real-time nodes, fiber links, and access points — watch the grid breathe as data flows across the county.</div>
+  </div>
+  <div class="network-layout">
+    <svg id="net-svg" viewBox="0 0 500 400" class="reveal-left">
+      <!-- Wires -->
+      <g stroke="rgba(200,255,0,.25)" stroke-width="1" fill="none" stroke-dasharray="6 4">
+        <line class="wire-draw" x1="250" y1="200" x2="80" y2="80" style="stroke-dasharray:300"/>
+        <line class="wire-draw" x1="250" y1="200" x2="420" y2="80" style="stroke-dasharray:300;animation-delay:.1s"/>
+        <line class="wire-draw" x1="250" y1="200" x2="80" y2="320" style="stroke-dasharray:300;animation-delay:.2s"/>
+        <line class="wire-draw" x1="250" y1="200" x2="420" y2="320" style="stroke-dasharray:300;animation-delay:.15s"/>
+        <line class="wire-draw" x1="80" y1="80" x2="420" y2="80" style="stroke-dasharray:400;animation-delay:.3s" stroke="rgba(0,240,255,.2)"/>
+        <line class="wire-draw" x1="80" y1="320" x2="420" y2="320" style="stroke-dasharray:400;animation-delay:.35s" stroke="rgba(0,240,255,.2)"/>
+        <line class="wire-draw" x1="250" y1="200" x2="250" y2="60" style="stroke-dasharray:200;animation-delay:.4s"/>
+        <line class="wire-draw" x1="250" y1="200" x2="150" y2="200" style="stroke-dasharray:200;animation-delay:.45s"/>
+        <line class="wire-draw" x1="250" y1="200" x2="350" y2="200" style="stroke-dasharray:200;animation-delay:.5s"/>
+      </g>
+      <!-- Ping dots animating along wires -->
+      <circle r="3" fill="#c8ff00" opacity=".9">
+        <animateMotion dur="2.5s" repeatCount="indefinite" path="M250,200 L80,80"/>
+      </circle>
+      <circle r="3" fill="#00f0ff" opacity=".9">
+        <animateMotion dur="3s" repeatCount="indefinite" path="M250,200 L420,80"/>
+      </circle>
+      <circle r="2.5" fill="#c8ff00" opacity=".7">
+        <animateMotion dur="2s" repeatCount="indefinite" path="M250,200 L420,320"/>
+      </circle>
+      <circle r="2.5" fill="#ff9900" opacity=".8">
+        <animateMotion dur="3.5s" repeatCount="indefinite" path="M80,80 L420,80"/>
+      </circle>
+      <circle r="2" fill="#00f0ff" opacity=".6">
+        <animateMotion dur="2.8s" repeatCount="indefinite" path="M250,200 L250,60"/>
+      </circle>
+      <!-- Central HUB -->
+      <g class="node-pulse">
+        <circle cx="250" cy="200" r="28" fill="rgba(200,255,0,.08)" stroke="#c8ff00" stroke-width="1.5"/>
+        <circle cx="250" cy="200" r="18" fill="rgba(200,255,0,.12)" stroke="#c8ff00" stroke-width="1">
+          <animate attributeName="r" values="18;22;18" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="1;.5;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="250" cy="200" r="6" fill="#c8ff00"/>
+        <text x="250" y="240" text-anchor="middle" fill="rgba(200,255,0,.7)" font-family="Share Tech Mono,monospace" font-size="8" letter-spacing="2">PROVIDER</text>
+      </g>
+      <!-- Outer nodes -->
+      <g class="node-pulse" style="animation-delay:.1s">
+        <circle cx="80" cy="80" r="16" fill="rgba(0,240,255,.08)" stroke="#00f0ff" stroke-width="1"/>
+        <circle cx="80" cy="80" r="6" fill="#00f0ff"/>
+        <text x="80" y="58" text-anchor="middle" fill="rgba(0,240,255,.6)" font-family="Share Tech Mono,monospace" font-size="7" letter-spacing="1">NYERI TOWN</text>
+      </g>
+      <g class="node-pulse" style="animation-delay:.2s">
+        <circle cx="420" cy="80" r="16" fill="rgba(0,240,255,.08)" stroke="#00f0ff" stroke-width="1"/>
+        <circle cx="420" cy="80" r="6" fill="#00f0ff"/>
+        <text x="420" y="58" text-anchor="middle" fill="rgba(0,240,255,.6)" font-family="Share Tech Mono,monospace" font-size="7" letter-spacing="1">CHAKA</text>
+      </g>
+      <g class="node-pulse" style="animation-delay:.3s">
+        <circle cx="80" cy="320" r="16" fill="rgba(200,255,0,.08)" stroke="#c8ff00" stroke-width="1"/>
+        <circle cx="80" cy="320" r="6" fill="#c8ff00"/>
+        <text x="80" y="344" text-anchor="middle" fill="rgba(200,255,0,.6)" font-family="Share Tech Mono,monospace" font-size="7" letter-spacing="1">KARATINA</text>
+      </g>
+      <g class="node-pulse" style="animation-delay:.25s">
+        <circle cx="420" cy="320" r="16" fill="rgba(200,255,0,.08)" stroke="#c8ff00" stroke-width="1"/>
+        <circle cx="420" cy="320" r="6" fill="#c8ff00"/>
+        <text x="420" y="344" text-anchor="middle" fill="rgba(200,255,0,.6)" font-family="Share Tech Mono,monospace" font-size="7" letter-spacing="1">RURING'U</text>
+      </g>
+      <g class="node-pulse" style="animation-delay:.35s">
+        <circle cx="250" cy="60" r="12" fill="rgba(255,153,0,.08)" stroke="#ff9900" stroke-width="1"/>
+        <circle cx="250" cy="60" r="5" fill="#ff9900"/>
+        <text x="250" y="44" text-anchor="middle" fill="rgba(255,153,0,.6)" font-family="Share Tech Mono,monospace" font-size="7" letter-spacing="1">DEDAN KIMATHI</text>
+      </g>
+      <g class="node-pulse" style="animation-delay:.4s">
+        <circle cx="150" cy="200" r="10" fill="rgba(200,255,0,.08)" stroke="#c8ff00" stroke-width=".75"/>
+        <circle cx="150" cy="200" r="4" fill="rgba(200,255,0,.7)"/>
+        <text x="120" y="203" text-anchor="middle" fill="rgba(200,255,0,.6)" font-family="Share Tech Mono,monospace" font-size="7" letter-spacing="1">KAMAKWA</text>
+      </g>
+      <g class="node-pulse" style="animation-delay:.45s">
+        <circle cx="350" cy="200" r="10" fill="rgba(0,240,255,.08)" stroke="#00f0ff" stroke-width=".75"/>
+        <circle cx="350" cy="200" r="4" fill="rgba(0,240,255,.7)"/>
+        <text x="375" y="203" text-anchor="middle" fill="rgba(0,240,255,.6)" font-family="Share Tech Mono,monospace" font-size="7" letter-spacing="1">GANGA</text>
+      </g>
+    </svg>
+
+    <div class="net-nodes reveal-right">
+      <div class="net-node-item">
+        <div class="node-dot"></div>
+        <div class="node-info">
+          <div class="node-name">Nyeri Town Core</div>
+          <div class="node-status">ONLINE // 98.4 Mbps avg // 0 ms latency</div>
+        </div>
+      </div>
+      <div class="net-node-item">
+        <div class="node-dot plasma"></div>
+        <div class="node-info">
+          <div class="node-name">Ruring'u Sector</div>
+          <div class="node-status">ONLINE // 87.2 Mbps avg // 1 ms latency</div>
+        </div>
+      </div>
+      <div class="net-node-item">
+        <div class="node-dot"></div>
+        <div class="node-info">
+          <div class="node-name">Dedan Kimathi Zone</div>
+          <div class="node-status">ONLINE // 95.1 Mbps avg // 0 ms latency</div>
+        </div>
+      </div>
+      <div class="net-node-item">
+        <div class="node-dot plasma"></div>
+        <div class="node-info">
+          <div class="node-name">CHAKA CENTER</div>
+          <div class="node-status">ONLINE // 72.6 Mbps avg // 2 ms latency</div>
+        </div>
+      </div>
+      <div class="net-node-item">
+        <div class="node-dot"></div>
+        <div class="node-info">
+          <div class="node-name">Karatina Junction</div>
+          <div class="node-status">EXPANDING // Installation in progress</div>
+        </div>
+      </div>
+      <div class="net-node-item" style="border-color:rgba(200,255,0,.15);background:rgba(200,255,0,.03)">
+        <div class="node-dot blood"></div>
+        <div class="node-info">
+          <div class="node-name" style="color:rgba(200,255,0,.5)">Your Area → Coming Soon</div>
+          <div class="node-status">Request installation via WhatsApp</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     §4  PACKAGES
+════════════════════════════════════ -->
+<section class="packages" id="packages">
+  <div class="reveal" style="text-align:center">
+    <div class="sec-label" style="justify-content:center">Pricing</div>
+    <div class="sec-title">Choose Your <span style="color:var(--acid)">Signal</span></div>
+    <div class="sec-sub" style="margin:14px auto 0;text-align:center">No hidden fees. No contracts. Just fast internet at a fair price. Pay via M-Pesa, simple and instant.</div>
+  </div>
+
+  <!-- ── SUB-SECTION 1: Installation Packages ── -->
+  <div class="reveal" style="margin-top:56px;margin-bottom:16px">
+    <div class="sec-label" style="justify-content:center;text-align:center">Home &amp; Business Installation</div>
+    <div style="text-align:center;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.35);margin-top:8px">DEDICATED FIBER LINE // FULL INSTALLATION INCLUDED // ROUTER PROVIDED</div>
+  </div>
+  <div class="pkg-grid">
+    <div class="pkg-card reveal-left">
+      <div class="pkg-name">Basic</div>
+      <div class="pkg-price">1,500 <span>KES/mo</span></div>
+      <div class="pkg-duration">// 8 MBPS</div>
+      <ul class="pkg-features">
+        <li>8 Mbps dedicated speed</li>
+        <li>WhatsApp, social & browsing</li>
+        <li>Ideal for light home use</li>
+        <li>Full installation included</li>
+        <li>Local technician support</li>
+      </ul>
+      <button class="pkg-btn outline" onclick="window.open('https://wa.me/254701182849?text=Hi!%20I%20want%20the%20Basic%208Mbps%20installation%20package','_blank')">Get Basic</button>
+    </div>
+
+    <div class="pkg-card reveal">
+      <div class="pkg-name">Standard</div>
+      <div class="pkg-price">2,000 <span>KES/mo</span></div>
+      <div class="pkg-duration">// 12 MBPS</div>
+      <ul class="pkg-features">
+        <li>12 Mbps dedicated speed</li>
+        <li>Streaming & video calls</li>
+        <li>Great for small families</li>
+        <li>Full installation included</li>
+        <li>Same-day fault response</li>
+      </ul>
+      <button class="pkg-btn outline" onclick="window.open('https://wa.me/254701182849?text=Hi!%20I%20want%20the%20Standard%2012Mbps%20installation%20package','_blank')">Get Standard</button>
+    </div>
+
+    <div class="pkg-card featured reveal" style="transform:scale(1.03)">
+      <div class="pkg-badge">MOST POPULAR</div>
+      <div class="pkg-name">Pro</div>
+      <div class="pkg-price">2,500 <span>KES/mo</span></div>
+      <div class="pkg-duration">// 15 MBPS</div>
+      <ul class="pkg-features">
+        <li>15 Mbps dedicated speed</li>
+        <li>4K streaming ready</li>
+        <li>Multiple devices at once</li>
+        <li>Full installation included</li>
+        <li>Priority support</li>
+      </ul>
+      <button class="pkg-btn" onclick="window.open('https://wa.me/254701182849?text=Hi!%20I%20want%20the%20Pro%2015Mbps%20installation%20package','_blank')">Get Pro</button>
+    </div>
+
+    <div class="pkg-card reveal-right">
+      <div class="pkg-name">Business</div>
+      <div class="pkg-price">3,000 <span>KES/mo</span></div>
+      <div class="pkg-duration">// 20 MBPS</div>
+      <ul class="pkg-features">
+        <li>20 Mbps dedicated speed</li>
+        <li>Ideal for offices & shops</li>
+        <li>Heavy uploads & downloads</li>
+        <li>Full installation included</li>
+        <li>Dedicated account support</li>
+      </ul>
+      <button class="pkg-btn outline" onclick="window.open('https://wa.me/254701182849?text=Hi!%20I%20want%20the%20Business%2020Mbps%20installation%20package','_blank')">Get Business</button>
+    </div>
+  </div>
+
+  <!-- ── SUB-SECTION 2: Hotspot / Lightweight Bundles ── -->
+  <div class="reveal" style="margin-top:64px;margin-bottom:16px">
+    <div class="sec-label" style="justify-content:center;text-align:center">Hotspot Bundles</div>
+    <div style="text-align:center;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.35);margin-top:8px">NO INSTALLATION NEEDED // PAY &amp; CONNECT INSTANTLY // M-PESA ACCEPTED</div>
+  </div>
+  <div class="pkg-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+    <div class="pkg-card reveal-left">
+      <div class="pkg-name">Quick</div>
+      <div class="pkg-price">10 <span>KES</span></div>
+      <div class="pkg-duration">// 2 HOURS</div>
+      <ul class="pkg-features">
+        <li>Instant activation</li>
+        <li>WhatsApp & social</li>
+        <li>Browsing & calls</li>
+      </ul>
+      <button class="pkg-btn outline" onclick="openPayPopup('Quick Bundle','KES 10')">Get Quick</button>
+    </div>
+
+    <div class="pkg-card reveal">
+      <div class="pkg-name">Half-Day</div>
+      <div class="pkg-price">20 <span>KES</span></div>
+      <div class="pkg-duration">// 8 HOURS</div>
+      <ul class="pkg-features">
+        <li>Instant activation</li>
+        <li>YouTube & streaming</li>
+        <li>Video calls & Zoom</li>
+      </ul>
+      <button class="pkg-btn outline" onclick="openPayPopup('Half-Day Bundle','KES 20')">Get Half-Day</button>
+    </div>
+
+    <div class="pkg-card featured reveal" style="transform:scale(1.03)">
+      <div class="pkg-badge">BEST VALUE</div>
+      <div class="pkg-name">Daily</div>
+      <div class="pkg-price">30 <span>KES</span></div>
+      <div class="pkg-duration">// 24 HOURS</div>
+      <ul class="pkg-features">
+        <li>Instant activation</li>
+        <li>Unlimited social + YouTube</li>
+        <li>Gaming compatible</li>
+      </ul>
+      <button class="pkg-btn" onclick="openPayPopup('Daily Bundle','KES 30')">Get Daily</button>
+    </div>
+
+    <div class="pkg-card reveal">
+      <div class="pkg-name">Weekly</div>
+      <div class="pkg-price">200 <span>KES</span></div>
+      <div class="pkg-duration">// 7 DAYS</div>
+      <ul class="pkg-features">
+        <li>Instant activation</li>
+        <li>High-speed access</li>
+        <li>Multiple sessions</li>
+      </ul>
+      <button class="pkg-btn outline" onclick="openPayPopup('Weekly Bundle','KES 200')">Get Weekly</button>
+    </div>
+
+    <div class="pkg-card reveal-right">
+      <div class="pkg-name">Monthly</div>
+      <div class="pkg-price">800 <span>KES</span></div>
+      <div class="pkg-duration">// 30 DAYS</div>
+      <ul class="pkg-features">
+        <li>Instant activation</li>
+        <li>Best monthly rate</li>
+        <li>Priority connection</li>
+      </ul>
+      <button class="pkg-btn outline" onclick="openPayPopup('Monthly Bundle','KES 800')">Get Monthly</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     §5  HOW IT WORKS
+════════════════════════════════════ -->
+<section class="howitworks" id="how">
+  <div class="reveal" style="text-align:center">
+    <div class="sec-label" style="justify-content:center">Process</div>
+    <div class="sec-title">Online in <span style="color:var(--plasma)">4 Steps</span></div>
+    <div class="sec-sub" style="margin:14px auto 0;text-align:center">From zero to blazing fast internet — faster than you think. No complicated paperwork, no waiting weeks.</div>
+  </div>
+  <div class="steps-timeline">
+    <div class="step reveal" style="animation-delay:0s">
+      <div class="step-num">01</div>
+      <div class="step-title">Check Coverage</div>
+      <div class="step-text">WhatsApp us or use the coverage map to confirm we serve your area. Most of Nyeri County is covered.</div>
+    </div>
+    <div class="step reveal" style="animation-delay:.1s">
+      <div class="step-num" style="border-color:rgba(0,240,255,.35);color:var(--plasma)">02</div>
+      <div class="step-title">Book Install</div>
+      <div class="step-text">We schedule your installation — same day or next day. Our tech comes to you in Nyeri. No waiting weeks.</div>
+    </div>
+    <div class="step reveal" style="animation-delay:.2s">
+      <div class="step-num" style="border-color:rgba(255,153,0,.35);color:var(--amber)">03</div>
+      <div class="step-title">Pay via M-Pesa</div>
+      <div class="step-text">Send payment via M-Pesa. Get a confirmation instantly. No bank account needed — just your phone.</div>
+    </div>
+    <div class="step reveal" style="animation-delay:.3s">
+      <div class="step-num" style="border-color:rgba(200,255,0,.5);color:var(--acid)">04</div>
+      <div class="step-title">Go Online</div>
+      <div class="step-text">Connect your devices and start browsing. Full-speed internet in Nyeri — instantly. Welcome to the grid.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     §6  COVERAGE MAP
+════════════════════════════════════ -->
+<section class="coverage" id="coverage">
+  <div class="reveal">
+    <div class="sec-label">Coverage</div>
+    <div class="sec-title">Where We <span style="color:var(--acid)">Operate</span></div>
+    <div class="sec-sub">Expanding across Nyeri County. Already live in these areas — more coming soon. Don't see your area? Request it.</div>
+  </div>
+  <div class="coverage-layout">
+    <div width="500" height="480" class="reveal-left coverage-img"><img src="https://i.pinimg.com/736x/f7/eb/3e/f7eb3efed11e51e1393101a8444e3d5c.jpg" alt=""></div>
+    <div class="reveal-right">
+      <div class="coverage-list">
+        <div class="coverage-item">
+          <div class="cov-place">Nyeri Town</div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="cov-signal"><div class="cov-bar"></div><div class="cov-bar"></div><div class="cov-bar"></div><div class="cov-bar"></div><div class="cov-bar"></div></div>
+            <div class="cov-tag">LIVE</div>
+          </div>
+        </div>
+        <div class="coverage-item">
+          <div class="cov-place">Ruring'u</div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="cov-signal"><div class="cov-bar"></div><div class="cov-bar"></div><div class="cov-bar"></div><div class="cov-bar"></div><div class="cov-bar off"></div></div>
+            <div class="cov-tag">LIVE</div>
+          </div>
+        </div>
+        <div class="coverage-item">
+          <div class="cov-place">Dedan Kimathi</div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="cov-signal"><div class="cov-bar"></div><div class="cov-bar"></div><div class="cov-bar"></div><div class="cov-bar off"></div><div class="cov-bar off"></div></div>
+            <div class="cov-tag">LIVE</div>
+          </div>
+        </div>
+        <div class="coverage-item">
+          <div class="cov-place">chaka center</div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="cov-signal"><div class="cov-bar"></div><div class="cov-bar"></div><div class="cov-bar"></div><div class="cov-bar off"></div><div class="cov-bar off"></div></div>
+            <div class="cov-tag">LIVE</div>
+          </div>
+        </div>
+        <div class="coverage-item">
+          <div class="cov-place">Karatina</div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="cov-signal"><div class="cov-bar"></div><div class="cov-bar"></div><div class="cov-bar off"></div><div class="cov-bar off"></div><div class="cov-bar off"></div></div>
+            <div class="cov-tag" style="border-color:rgba(255,153,0,.4);color:rgba(255,153,0,.8)">EXPANDING</div>
+          </div>
+        </div>
+        <div class="coverage-item" style="border-color:rgba(200,255,0,.12);background:rgba(200,255,0,.03)">
+          <div class="cov-place" style="color:rgba(200,255,0,.6);font-size:16px">Your Area?</div>
+          <a href="https://wa.me/254701182849?text=I%20want%20to%20request%20internet%20installation%20in%20my%20area" class="cov-tag" style="text-decoration:none;cursor:pointer;color:var(--acid);border-color:var(--acid)" target="_blank">REQUEST INSTAL</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     §7  ABOUT
+════════════════════════════════════ -->
+<section class="about" id="about">
+  <div class="reveal">
+    <div class="sec-label">The Human Behind the Signal</div>
+    <div class="sec-title">Local Tech.<br><span style="color:var(--acid)">Real Support.</span></div>
+  </div>
+  <div class="about-layout">
+    <div class="about-visual reveal-left">
+      <div class="tech-card">
+        <div class="tech-avatar">
+          <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="7" stroke="#c8ff00" stroke-width="1.2"/><path d="M6 36c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="#c8ff00" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="tech-name">Your Tech Expert</div>
+        <div class="tech-role">Nyeri-Based Network Engineer</div>
+        <div class="tech-bio">Hi — I'm Hezron, a local WiFi technician based right here in Nyeri. I personally handle every installation, every fault, every call. When you have a problem at 8pm, I pick up. No call centres. No ticket queues. Just me, your neighbour, fixing your internet.</div>
+        <div class="tech-badges">
+          <div class="tech-badge">5+ Years Experience</div>
+          <div class="tech-badge">Same-Day Support</div>
+          <div class="tech-badge" style="border-color:rgba(0,240,255,.25);color:rgba(0,240,255,.7)">Based in Nyeri</div>
+        </div>
+      </div>
+      <!-- Decorative corner elements -->
+      <div style="position:absolute;top:-10px;right:-10px;width:40px;height:40px;border-top:2px solid var(--acid);border-right:2px solid var(--acid)"></div>
+      <div style="position:absolute;bottom:-10px;left:-10px;width:40px;height:40px;border-bottom:2px solid var(--acid);border-left:2px solid var(--acid)"></div>
+    </div>
+
+    <div class="about-content reveal-right">
+      <div class="sec-sub" style="margin-bottom:30px">Unlike big ISPs where you're just a ticket number, we're a local business. Your satisfaction affects our reputation — and that means we actually care.</div>
+      <div class="about-points">
+        <div class="about-pt">
+          <div class="apt-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 10l5 5L17 5" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="apt-title">Physical Presence in Nyeri</div>
+            <div class="apt-text">We're not remote — we're in the same town. Walk-in support, on-site visits, real human contact.</div>
+          </div>
+        </div>
+        <div class="about-pt">
+          <div class="apt-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#00f0ff" stroke-width="1.2"/><path d="M10 6v4l3 2" stroke="#00f0ff" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="apt-title">Same-Day Fault Response</div>
+            <div class="apt-text">Report a fault — we're there within hours, not days. Your uptime is our priority.</div>
+          </div>
+        </div>
+        <div class="about-pt">
+          <div class="apt-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 8c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="#ff9900" stroke-width="1.2"/><path d="M6.5 8c0-1.933 1.567-3.5 3.5-3.5S13.5 6.067 13.5 8" stroke="#ff9900" stroke-width="1.2"/><circle cx="10" cy="8" r="1.5" fill="#ff9900"/><path d="M10 9.5v6M7 15.5h6" stroke="#ff9900" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="apt-title">M-Pesa First</div>
+            <div class="apt-text">Everything is designed around Kenya's mobile ecosystem. Easy payments, confirmations on WhatsApp.</div>
+          </div>
+        </div>
+        <div class="about-pt">
+          <div class="apt-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L12.5 7.5H18L13.5 11L15.5 17L10 13.5L4.5 17L6.5 11L2 7.5H7.5L10 2Z" stroke="#c8ff00" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="apt-title">Community-Driven Growth</div>
+            <div class="apt-text">We grow by referral and reputation, not advertising budgets. Every happy customer brings the next one.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     §8  TESTIMONIALS
+════════════════════════════════════ -->
+<section class="testimonials">
+  <div class="reveal" style="text-align:center">
+    <div class="sec-label" style="justify-content:center">Client Logs</div>
+    <div class="sec-title">What Nyeri <span style="color:var(--plasma)">Says</span></div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal-left">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <div class="testi-quote">Been using NYERI.NET for 8 months. The speed is consistent and when I had an issue, the tech was at my shop within two hours. That level of service doesn't happen with big providers.</div>
+      <div class="testi-name">James M.</div>
+      <div class="testi-role">Shop Owner, Nyeri Town</div>
+    </div>
+    <div class="testi-card reveal" style="animation-delay:.1s">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <div class="testi-quote">The KES 100 daily bundle is perfect for students. Fast enough for YouTube, WhatsApp, and my research. Price is unbeatable and it just works every time.</div>
+      <div class="testi-name">Faith W.</div>
+      <div class="testi-role">University Student, Ruring'u</div>
+    </div>
+    <div class="testi-card reveal-right">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <div class="testi-quote">I run my M-Pesa business online. NYERI.NET gave me stable internet I can actually depend on. Zero downtime in 3 months. My business is better for it.</div>
+      <div class="testi-name">Peter K.</div>
+      <div class="testi-role">M-Pesa Agent, Kirimara</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     §9  FINAL CTA
+════════════════════════════════════ -->
+<section class="final-cta">
+  <div class="reveal">
+    <div class="cta-title">Ready to<br><span class="accent">Get Online?</span></div>
+    <div class="cta-sub">Join hundreds of Nyeri residents and businesses already running on our network. Fast setup, fair price, local support — always.</div>
+    <div class="cta-btns">
+      <a href="https://wa.me/254701182849?text=Hi!%20I%27d%20like%20to%20get%20connected%20to%20ZELEONTECH" class="btn-p" target="_blank">WhatsApp Us Now</a>
+      <a href="#packages" class="btn-s">View All Packages</a>
+    </div>
+    <div style="margin-top:40px;font-family:monospace;font-size:12px;letter-spacing:3px;color:rgba(255, 255, 255, 0.712)">CALL / WHATSAPP: 0701182849 &nbsp;|&nbsp; NYERI TOWN, KENYA</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FOOTER
+════════════════════════════════════ -->
+<footer>
+  <div class="footer-brand">
+    <a href="#" class="logo" style="text-decoration:none">
+      <svg class="logo-hex" viewBox="0 0 36 36" fill="none">
+      <polygon points="18,1 34,9.5 34,26.5 18,35 2,26.5 2,9.5" fill="none" stroke="#c8ff00" stroke-width="1.5"/>
+      <polygon points="18,7 28,12.5 28,23.5 18,29 8,23.5 8,12.5" fill="rgba(200,255,0,.07)" stroke="#c8ff00" stroke-width=".75"/>
+      <circle cx="18" cy="18" r="3.5" fill="#c8ff00"/>
+      <line x1="18" y1="1" x2="18" y2="35" stroke="#c8ff00" stroke-width=".4" opacity=".35"/>
+      <line x1="2" y1="9.5" x2="34" y2="26.5" stroke="#c8ff00" stroke-width=".4" opacity=".35"/>
+      <line x1="34" y1="9.5" x2="2" y2="26.5" stroke="#c8ff00" stroke-width=".4" opacity=".35"/>
+    </svg>
+      <div class="logo-name">ZELEONTECH</div>
+    </a>
+    <p>Fast, affordable WiFi for Nyeri County. Local technician. Real support. Powered by fiber and community trust.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Services</h4>
+    <a href="#packages">Home WiFi</a>
+    <a href="#packages">Business Internet</a>
+    <a href="#packages">Hotspot Bundles</a>
+    <a href="#coverage">Coverage Check</a>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <a href="#about">About Us</a>
+    <a href="#how">How It Works</a>
+    <a href="#network">Network Status</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+  <div class="footer-col">
+    <h4>Contact</h4>
+    <a href="https://wa.me/254701182849">WhatsApp: 0701 182 849</a>
+    <a href="mailto:info@nyeri.net">hezronambala37@gmail.com</a>
+    <a href="#">Nyeri Town, Kenya</a>
+    <a href="#">Mon–Sun: 7am–9pm</a>
+  </div>
+  <div class="footer-bottom" style="grid-column:1/-1">
+    <p>© 2025 ZELEONTECH // All systems operational</p>
+    <p>WIFI // SPEED // COMMUNITY</p>
+  </div>
+</footer>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-lbl">LIVE</div>
+  <div class="ticker-scroll">
+    <div class="ticker-item"><em>▲</em>NETWORK UPTIME: 99.7%</div>
+    <div class="ticker-item"><em>■</em>NYERI TOWN NODE — ONLINE // 0ms LATENCY</div>
+    <div class="ticker-item"><em>◆</em>KARATINA EXPANSION — COMING SOON</div>
+    <div class="ticker-item"><em>▲</em>KES 10 BUNDLE — 1 HOUR FAST INTERNET</div>
+    <div class="ticker-item"><em>■</em>WHATSAPP: 0701 812 849</div>
+    <div class="ticker-item"><em>◆</em>LOCAL TECHNICIAN RESPONSE: SAME DAY</div>
+    <div class="ticker-item"><em>▲</em>NETWORK UPTIME: 99.7%</div>
+    <div class="ticker-item"><em>■</em>NYERI TOWN NODE — ONLINE // 0ms LATENCY</div>
+    <div class="ticker-item"><em>◆</em>KARATINA EXPANSION — COMING SOON</div>
+    <div class="ticker-item"><em>▲</em>KES 10 BUNDLE — 1 HOUR FAST INTERNET</div>
+    <div class="ticker-item"><em>■</em>WHATSAPP: 0701 812 849</div>
+    <div class="ticker-item"><em>◆</em>LOCAL TECHNICIAN RESPONSE: SAME DAY</div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+<script>
+  /* ─── SIDEBAR TOGGLE ─── */
+  const menuBtn    = document.getElementById('menu-btn');
+  const sidebar    = document.getElementById('sidebar');
+  const overlay    = document.getElementById('sidebar-overlay');
+  const closeBtn   = document.getElementById('sidebar-close');
+  const sideLinks  = document.querySelectorAll('.sidebar-link, .sidebar-cta');
+
+  function openSidebar(){
+    sidebar.classList.add('open');
+    overlay.classList.add('open');
+    menuBtn.classList.add('open');
+    menuBtn.setAttribute('aria-expanded','true');
+    document.body.style.overflow='hidden';
+  }
+  function closeSidebar(){
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+    menuBtn.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+  }
+
+  menuBtn.addEventListener('click', openSidebar);
+  closeBtn.addEventListener('click', closeSidebar);
+  overlay.addEventListener('click', closeSidebar);
+  sideLinks.forEach(l => l.addEventListener('click', closeSidebar));
+</script>
+
+<!-- ═══════════════════════════════════
+     WEBSITE AD POPUP
+════════════════════════════════════ -->
+<div id="ad-popup" class="ad-popup">
+
+  <!-- Glowing corner accents -->
+  <div class="ad-corner ad-corner--tl"></div>
+  <div class="ad-corner ad-corner--tr"></div>
+  <div class="ad-corner ad-corner--bl"></div>
+  <div class="ad-corner ad-corner--br"></div>
+
+  <!-- Scan-line overlay -->
+  <div class="ad-scanlines"></div>
+
+  <!-- Close button -->
+  <button class="ad-close" id="ad-close" aria-label="Close ad">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <line x1="1" y1="1" x2="13" y2="13" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="13" y1="1" x2="1"  y2="13" stroke="#c8ff00" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <!-- Header badge -->
+  <div class="ad-badge">
+    <span class="ad-badge-dot"></span>
+    WEB SERVICES // CASUAL CODE STUDIOS
+  </div>
+
+  <!-- Main headline -->
+  <div class="ad-headline">Need a<br><span class="ad-headline-accent">Website?</span></div>
+  <div class="ad-sub">We build fast, modern websites for businesses, shops, and professionals across Kenya.</div>
+
+  <!-- Pricing tiers -->
+  <div class="ad-prices">
+    <div class="ad-price-row">
+      <div class="ad-price-label">Portfolio / Personal</div>
+      <div class="ad-price-val">from <strong>KES 2,000</strong></div>
+    </div>
+    <div class="ad-price-row">
+      <div class="ad-price-label">Business / Shop</div>
+      <div class="ad-price-val">from <strong>KES 5,000</strong></div>
+    </div>
+    <div class="ad-price-row">
+      <div class="ad-price-label">E-Commerce / Full</div>
+      <div class="ad-price-val">from <strong>KES 12,000</strong></div>
+    </div>
+  </div>
+
+  <!-- Perks list -->
+  <ul class="ad-perks">
+    <li>Mobile-first &amp; fast-loading</li>
+    <li>M-Pesa integration available</li>
+    <li>Domain + hosting guidance</li>
+    <li>WhatsApp support after launch</li>
+  </ul>
+
+  <!-- CTA -->
+  <a href="https://wa.me/254111760757?text=Hi!%20I%27d%20like%20a%20website%20quote%20from%20CASUAL-CODE-STUDIOS" target="_blank" class="ad-cta">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Get a Free Quote
+  </a>
+
+  <div class="ad-note">+254111 760 757 // Nyeri, Kenya</div>
+</div>
+
+<!-- Tab that peeks out from the right edge when popup is collapsed -->
+<button id="ad-tab" class="ad-tab" aria-label="View website offer">
+  <span class="ad-tab-text">WEB DESIGN</span>
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+    <rect x="1" y="1" width="10" height="10" rx="1" stroke="#03050d" stroke-width="1.2"/>
+    <path d="M3 4h6M3 6h4M3 8h5" stroke="#03050d" stroke-width="1" stroke-linecap="round"/>
+  </svg>
+</button>
+
+<script>
+/* ─── AD POPUP LOGIC ─── */
+(function(){
+  const popup   = document.getElementById('ad-popup');
+  const closeBtn = document.getElementById('ad-close');
+  const tab     = document.getElementById('ad-tab');
+  let   isOpen  = false;
+  let   timer;
+
+  function openAd(){
+    popup.classList.add('ad-open');
+    tab.classList.add('ad-tab-hidden');
+    isOpen = true;
+  }
+
+  function closeAd(){
+    popup.classList.remove('ad-open');
+    popup.classList.add('ad-collapsed');
+    tab.classList.remove('ad-tab-hidden');
+    isOpen = false;
+    /* Restart the 1-minute cycle */
+    clearTimeout(timer);
+    timer = setTimeout(openAd, 60000);
+  }
+
+  function toggleAd(){
+    if(isOpen){ closeAd(); } else { openAd(); }
+  }
+
+  closeBtn.addEventListener('click', closeAd);
+  tab.addEventListener('click', toggleAd);
+
+  /* First appearance: 1 minute after page load */
+  timer = setTimeout(openAd, 60000);
+})();
+</script>
+
+<!-- ═══════════════════════════════════
+     MPESA PAY POPUP BANNER
+════════════════════════════════════ -->
+<div id="pay-popup-overlay" onclick="closePayPopup()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9000;backdrop-filter:blur(3px)"></div>
+
+<div id="pay-popup" style="
+  display:none;
+  position:fixed;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  z-index:9001;
+  width:min(360px,92vw);
+  background:#0b1526;
+  border:1px solid rgba(200,255,0,.35);
+  border-radius:6px;
+  padding:32px 28px 28px;
+  font-family:'Share Tech Mono',monospace;
+  box-shadow:0 0 40px rgba(200,255,0,.12),0 20px 60px rgba(0,0,0,.6);
+">
+  <!-- close -->
+  <button onclick="closePayPopup()" style="position:absolute;top:12px;right:14px;background:none;border:none;cursor:pointer;color:rgba(200,255,0,.6);font-size:18px;line-height:1;">✕</button>
+
+  <!-- header -->
+  <div style="font-size:9px;letter-spacing:3px;color:rgba(200,255,0,.5);margin-bottom:18px;">M-PESA PAYMENT // ZELEONTECH</div>
+
+  <!-- package name -->
+  <div style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:4px;">SELECTED PACKAGE</div>
+  <div id="pay-pkg-name" style="font-size:20px;color:#c8ff00;letter-spacing:2px;margin-bottom:20px;">—</div>
+
+  <!-- billing rows -->
+  <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(200,255,0,.12);padding-top:20px;">
+
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.4);">PAYBILL NUMBER</span>
+      <span style="font-size:18px;color:#c8ff00;letter-spacing:3px;">4018351</span>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.4);">ACCOUNT NUMBER</span>
+      <span style="font-size:13px;color:rgba(255,255,255,.7);letter-spacing:1px;">Enter Your Name</span>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.4);">AMOUNT</span>
+      <span id="pay-pkg-amount" style="font-size:18px;color:#00f0ff;letter-spacing:2px;">—</span>
+    </div>
+
+  </div>
+
+  <!-- note -->
+  <div style="margin-top:22px;font-size:9px;letter-spacing:1px;color:rgba(255,255,255,.3);line-height:1.7;border-top:1px solid rgba(200,255,0,.08);padding-top:14px;">
+    Go to M-Pesa → Lipa na M-Pesa → Pay Bill → enter the details above.<br>
+    Your connection activates instantly after payment.
+  </div>
+</div>
+
+<script>
+function openPayPopup(pkg, amount) {
+  document.getElementById('pay-pkg-name').textContent   = pkg;
+  document.getElementById('pay-pkg-amount').textContent = amount;
+  document.getElementById('pay-popup-overlay').style.display = 'block';
+  document.getElementById('pay-popup').style.display          = 'block';
+}
+function closePayPopup() {
+  document.getElementById('pay-popup-overlay').style.display = 'none';
+  document.getElementById('pay-popup').style.display          = 'none';
+}
+</script>
+
+</body>
+</html>
