@@ -15,13 +15,11 @@
 html{scroll-behavior:smooth}
 
 body{
-  pointer-events: none;
   background:var(--void);
   color:#fff;
   font-family:'Rajdhani',sans-serif;
   cursor:crosshair;
   overflow-x:hidden;
-  animation: body-blink 1.5s infinite;
 }
 @keyframes body-blink{
   0%,100%{opacity:0}
