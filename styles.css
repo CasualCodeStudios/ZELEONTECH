@@ -24,8 +24,8 @@ body{
   animation: body-blink 1.5s infinite;
 }
 @keyframes body-blink{
-  0%,100%{opacity:0.5}
-  50%{opacity:0.3}
+  0%,100%{opacity:0}
+  50%{opacity:0.1}
 }
 
 /* ─── CURSOR ─── */
