@@ -21,6 +21,7 @@ body{
   font-family:'Rajdhani',sans-serif;
   cursor:crosshair;
   overflow-x:hidden;
+  animation: blink 1.5s infinite;
 }
 
 /* ─── CURSOR ─── */
