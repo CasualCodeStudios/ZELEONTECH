@@ -15,6 +15,7 @@
 html{scroll-behavior:smooth}
 
 body{
+  pointer-events: none;
   background:var(--void);
   color:#fff;
   font-family:'Rajdhani',sans-serif;
