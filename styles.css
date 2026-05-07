@@ -21,7 +21,11 @@ body{
   font-family:'Rajdhani',sans-serif;
   cursor:crosshair;
   overflow-x:hidden;
-  animation: blink 1.5s infinite;
+  animation: body-blink 1.5s infinite;
+}
+@keyframes body-blink{
+  0%,100%{opacity:0.5}
+  50%{opacity:0.3}
 }
 
 /* ─── CURSOR ─── */
